@@ -31,6 +31,21 @@ services:
    networks:
     - favourite_currency_project_network
 
+  postgres_for_testing:
+   image: postgres:14
+   container_name: postgres_for_testing_favourite_currency
+   restart: always
+   tty: true
+   ports:
+   - "${OUTSIDE_DB_PORT_FOR_TESTING}:5432"
+   volumes:
+   - ./postgres_for_testing_data:/var/lib/postgresql/data
+   environment:
+    - "POSTGRES_PASSWORD=${DB_PASSWORD_DB_FOR_TESTING}"   
+    - PGDATA="/var/lib/postgresql/data/pgdata"
+   networks:
+    - favourite_currency_project_network  
+
   pgadmin:
     image: dpage/pgadmin4
     container_name: pgadmin_favourite_currency
