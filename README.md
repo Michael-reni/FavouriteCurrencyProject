@@ -17,14 +17,14 @@ $ php artisan l5-swagger:generate
 ## to genreate JWT token for accesing protected routes just register new user and copy WHOLE string (for example: "Bearer 3|RA5dpgiJpLlac17_REST_OF_THE_TOKEN") with acces token and paste it to the "padlock" icon.
 ## to look inside database You can access pgadmin in the browser "http://localhost:5559"
 ##	pgadmin login	
-##		-pgadmin_email@pgadmin.org
-##		-secretadmin
+##		login = pgadmin_email@pgadmin.org
+##		password = secretadmin
 ##	Rigth Click On Serwer->register->serwer->connection
-##		-postgres_favourite_currency
-##		-5432
-##		-postgres
-##		-postgres
-##		-secret
+##		hotstname = postgres_favourite_currency
+##		port = 5432
+##		database = postgres
+##		user = postgres
+##		password = secret
 ## if for some reason CRON is not working correctly with Laravel You can fetch data from NPB API by using this artisan command:    
 ```
 $ php artisan NBP:currency
