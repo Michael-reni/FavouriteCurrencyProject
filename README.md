@@ -29,3 +29,7 @@ $ php artisan l5-swagger:generate
 ```
 $ php artisan NBP:currency
 ```
+## to test project type in console:
+```
+$ php artisan test --testsuite=Feature
+```
