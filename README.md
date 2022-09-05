@@ -14,8 +14,8 @@ $ php artisan migrate
 $ php artisan l5-swagger:generate
 ```
 ## Now You can acces Swagger documentation. Copy Paste it to the browser "http://127.0.0.1:8080/api/documentation" enjoy!
-## to genreate JWT token for accesing protected routes just register new user and copy WHOLE string (for example: "Bearer 3|RA5dpgiJpLlac17REST_OF_THE_TOKEN") with acces token and paste it to the "padlock" icon
-## to look inside database u can acces pgadmin in the browser "http://localhost:5559"
+## to genreate JWT token for accesing protected routes just register new user and copy WHOLE string (for example: "Bearer 3|RA5dpgiJpLlac17_REST_OF_THE_TOKEN") with acces token and paste it to the "padlock" icon.
+## to look inside database You can access pgadmin in the browser "http://localhost:5559"
 ##	pgadmin login	
 ##		-pgadmin_email@pgadmin.org
 ##		-secretadmin
