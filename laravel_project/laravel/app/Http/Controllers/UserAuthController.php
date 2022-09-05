@@ -32,10 +32,7 @@ class UserAuthController extends Controller
      *      @OA\JsonContent(),
      *          
      *       ),
-     *  *      @OA\Response(
-     *          response=401,
-     *          description="Unauthenticated",
-     *      ),
+  
      * 
      *      @OA\Response(
      *          response=422,

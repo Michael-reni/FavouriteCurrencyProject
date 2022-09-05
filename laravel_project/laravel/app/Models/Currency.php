@@ -19,5 +19,9 @@ class Currency extends Model
 
     public $incrementing = false;
 
+    protected $hidden = [
+        'created_at',
+    ];
+
     //public $timestamps = false;
 }

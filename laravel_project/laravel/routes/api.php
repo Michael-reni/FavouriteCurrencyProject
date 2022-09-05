@@ -30,6 +30,8 @@ Route::middleware('auth:sanctum')->prefix('/user')->group(function() {
     Route::delete('/subscribed_currencies/{currency_name}',[SubscribedCurrencyController::class,'delete']);
     Route::delete('/subscribed_currencies',[SubscribedCurrencyController::class,'delete_all']);
     Route::get('/subscribed_currencies',[SubscribedCurrencyController::class,'index']);
+
+    Route::get('/subscribed_currencies/available',[NbpController::class,'available_currencies']);
   
 });
 

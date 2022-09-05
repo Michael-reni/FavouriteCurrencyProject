@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use App\Models\Currency;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Validator;
 
 class NbpController extends Controller
 {
@@ -56,5 +57,47 @@ class NbpController extends Controller
             }
      
         }
+    }
+    /**
+     * @OA\Get(
+     *      path="/user/subscribed_currencies/available",
+     *      tags={"SubscribedCurrency"},
+     *      security={ {"sanctum": {} }},
+     *      summary="check available currencies to subscribe", 
+     *      @OA\Response(
+     *          response=200,
+     *          description="OK",
+     *          @OA\JsonContent(), 
+     *       ),
+     *      @OA\Response(
+     *          response=401,
+     *          description="Unauthenticated",
+     *      ),
+     * 
+     *      @OA\Response(
+     *          response=422,
+     *          description="Unprocessable Entity",
+     *      ),
+     *        @OA\Response(
+     *          response=500,
+     *          description="Internal server error",
+     *      ),
+     *     
+     *     )
+     */
+    public function available_currencies(Request $request){
+            
+        $validator = Validator::make(['limit' => $request->query('limit')], [
+            'limit'=>'nullable|integer',        
+        ]);
+        if ($validator->fails()) {
+            return response()->json($validator->errors(),422);
+        }
+        $limit = $validator->validated()['limit'] ? (int)$validator->validated()['limit'] : 25;
+       
+        $currencies  = Currency::paginate($limit)->withQueryString();
+       
+        return response()->json($currencies,200);
+        
     }
 }

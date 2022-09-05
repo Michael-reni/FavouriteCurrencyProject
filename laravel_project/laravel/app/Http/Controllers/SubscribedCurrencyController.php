@@ -15,13 +15,17 @@ class SubscribedCurrencyController extends Controller
      *      path="/user/subscribed_currencies",
      *      tags={"SubscribedCurrency"},
      *      security={ {"sanctum": {} }},
-     *      summary="check account balance", 
+     *      summary="get list of subscribed currencies of particular user", 
      *      @OA\Response(
      *          response=200,
      *          description="OK",
      *          @OA\JsonContent(), 
      *       ),
      * 
+     *   @OA\Response(
+     *          response=401,
+     *          description="Unauthenticated",
+     *      ),
      *      @OA\Response(
      *          response=404,
      *          description="Not Found",
@@ -159,7 +163,10 @@ class SubscribedCurrencyController extends Controller
      *          description="No Content",
      *          @OA\JsonContent(), 
      *       ),
-     * 
+     *      @OA\Response(
+     *          response=401,
+     *          description="Unauthenticated",
+     *      ),
      *      @OA\Response(
      *          response=404,
      *          description="Not Found",
@@ -221,6 +228,10 @@ class SubscribedCurrencyController extends Controller
      *      @OA\Response(
      *          response=404,
      *          description="Not Found",
+     *      ),
+     *      @OA\Response(
+     *          response=401,
+     *          description="Unauthenticated",
      *      ),
      *      @OA\Response(
      *          response=422,
